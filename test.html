@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="ko"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Monthly Zap - 냉장고 ZAP 예시&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: 'Pretendard', sans-serif; background: #f8f9fa; margin: 0; padding: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 { font-size: 24px; margin-bottom: 16px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); max-width: 600px; margin: auto; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.input-area { margin-bottom: 16px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input[type="text"] { width: 70%; padding: 8px; margin-right: 8px; border: 1px solid #ccc; border-radius: 4px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button.add { padding: 8px 12px; background: #4CAF50; color: #fff; border: none; border-radius: 4px; cursor: pointer; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tags { margin-top: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tag { display: inline-block; background: #e0e0e0; padding: 4px 8px; margin: 4px; border-radius: 16px; font-size: 14px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.buttons { margin: 20px 0; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn { padding: 10px 16px; border-radius: 4px; border: 2px solid; margin-right: 8px; cursor: pointer; font-weight: bold; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-now { border-color: #4CAF50; color: #4CAF50; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-need { border-color: #F44336; color: #F44336; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.results { margin-top: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 12px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-title { font-size: 18px; font-weight: bold; margin-bottom: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-link { display: inline-block; margin-top: 8px; color: #1976D2; text-decoration: none; font-size: 14px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-ingredients { font-size: 13px; color: #666; margin-top: 4px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;냉장고 속 재료를 입력하세요!&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="input-area"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="ingredientInput" placeholder="예: 양파"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="add" onclick="addIngredient()"&gt;추가&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tags" id="tags"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="buttons"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="btn btn-now" onclick="showNow()"&gt;🟢 지금 만들기&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="btn btn-need" onclick="showNeed()"&gt;🔴 추가 재료 필요&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="results" id="results"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">const tagsContainer = document.getElementById('tags');</p>
+<p class="p1">const resultsContainer = document.getElementById('results');</p>
+<p class="p2"><br></p>
+<p class="p1">function addIngredient() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const input = document.getElementById('ingredientInput');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (input.value.trim() !== '') {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const tag = document.createElement('span');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tag.className = 'tag';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tag.innerText = input.value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tagsContainer.appendChild(tag);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function showNow() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>resultsContainer.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-title"&gt;김치찌개&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="card-link" href="#" target="_blank"&gt;레시피 보러가기 →&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-ingredients"&gt;추가 추천 재료: 국간장, 소금, 후추&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function showNeed() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>resultsContainer.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-title"&gt;김치볶음밥&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-ingredients"&gt;필요 추가 재료: 밥, 진간장, 식용유&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="card-link" href="#" target="_blank"&gt;레시피 보러가기 →&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-title"&gt;김치전&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-ingredients"&gt;필요 추가 재료: 부침가루, 식용유&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="card-link" href="#" target="_blank"&gt;레시피 보러가기 →&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-title"&gt;삼겹살 김치찜&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-ingredients"&gt;필요 추가 재료: 코인육수, 국간장, 다시다&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="card-link" href="#" target="_blank"&gt;레시피 보러가기 →&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`;</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
